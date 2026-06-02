@@ -11,8 +11,8 @@ if (!document.getElementById("hf")) {
 
 /* ═══════════════════ STORAGE ═══════════════════ */
 const DB = {
-  save: async (key, val) => { try { await window.storage.set(key, JSON.stringify(val)); } catch {} },
-  load: async (key, def) => { try { const r=await window.storage.get(key); return r?JSON.parse(r.value):def; } catch { return def; } },
+  save: async (key, val) => { try { localStorage.setItem(key, JSON.stringify(val)); } catch {} },
+  load: async (key, def) => { try { const r = localStorage.getItem(key); return r ? JSON.parse(r) : def; } catch { return def; } },
 };
 
 /* ═══════════════════ CONSTANTS ═══════════════════ */
